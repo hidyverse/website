@@ -1,0 +1,19 @@
+---
+title: SMART Goals for Smart Students
+author: Heidi Steiner
+date: '2020-05-12'
+slug: smart-goals-for-smart-students
+categories: []
+tags:
+  - opinion
+  - post
+---
+
+## Goals in Grad School 
+Probably the hardest part of graduate school is keeping track of all the different research projects and other important deadlines. My PI suggests each of the lab members write 4 to 5 goals a month to stay on track. So far, this tip has been monumental in keeping my progress going (and keeping a track record of my work)!
+
+## SMART Goals
+We can't write just any goals. Goals have to be SMART - specific, measureable, attainable, realistic and time-based. You learn very quickly how much work you're able to accomplish in a month which helps to set even better goals the next month. 
+![](/images/smartgoals.png)
+
+I highly recommend starting to set goals for yourself in short periods of time. Email these goals to someone who can keep you accountable. For me, it doesn't even matter if my boss has read the email I sent - I know I sent it so there's a record of what I said I would do. This keeps me accountable to myself! 

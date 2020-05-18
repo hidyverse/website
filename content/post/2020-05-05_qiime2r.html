@@ -1,0 +1,51 @@
+---
+title: "qiime2R"
+author: "Heidi Steiner"
+date: 2020-05-06
+categories: ["R"]
+tags: ["R Markdown", "plot", "16S"]
+---
+
+
+
+<div id="qiime" class="section level1">
+<h1>Qiime</h1>
+<p>My sequencing was done by Ion Torrent which made Qiime a bit difficult to use because of lacking documentation. I followed, mostly, this post by Carli Jones: <a href="https://forum.qiime2.org/t/possible-analysis-pipeline-for-ion-torrent-16s-metagenomics-kit-data-in-qiime2/13476" class="uri">https://forum.qiime2.org/t/possible-analysis-pipeline-for-ion-torrent-16s-metagenomics-kit-data-in-qiime2/13476</a>.</p>
+<div id="pipeline" class="section level2">
+<h2>Pipeline</h2>
+<ol style="list-style-type: decimal">
+<li>Import fastq using “manifest” file format</li>
+<li>Perform <code>DADA2</code></li>
+<li>Explore <code>feature counts</code></li>
+<li>Create phylogenetic tree using <code>SEPP (fragment insertion)</code></li>
+<li><code>Alpha rarefaction</code></li>
+<li><code>Core metrics analysis</code></li>
+</ol>
+</div>
+</div>
+<div id="qiime-outputs-r-plots" class="section level1">
+<h1>Qiime outputs, R plots</h1>
+<p>For this project data visualization is the most important part because it’s pilot data for a new project. qiime2R has really good documentation; for details see <a href="https://github.com/jbisanz/qiime2R" class="uri">https://github.com/jbisanz/qiime2R</a>.</p>
+<p>First I uploaded the Qiime2 output files needed to make my plot which was very straightforward following the documentation by Dr. Jordan Bisanz.</p>
+<pre class="r"><code>metadata&lt;-read_q2metadata(&quot;/warfgi_qiime_meta.tsv&quot;)
+uwunifrac&lt;-read_qza(&quot;/unweighted_unifrac_pcoa_results.qza&quot;)
+shannon&lt;-read_qza(&quot;/shannon_vector.qza&quot;)$data %&gt;% rownames_to_column(&quot;SampleID&quot;)</code></pre>
+</div>
+<div id="plotting" class="section level1">
+<h1>Plotting</h1>
+<p>Again, using code from the qiime2r documentation, I plotted the first two PCs with sizing by Alpha Diversity.</p>
+<pre class="r"><code>uwunifrac$data$Vectors %&gt;%
+  select(SampleID, PC1, PC2) %&gt;%
+  left_join(metadata) %&gt;%
+  left_join(shannon) %&gt;%
+  ggplot(aes(x=PC1, y=PC2, color=`samplegroup`, size=shannon)) +
+  geom_point(alpha=0.8) + #alpha controls transparency and helps when points are overlapping
+  theme_q2r() +
+  scale_size_continuous(name=&quot;Shannon Diversity&quot;) +
+  scale_color_discrete(name=&quot;Patient&quot;) + 
+  scale_color_viridis(discrete = T, name = &quot;patient&quot;)</code></pre>
+<p><img src="/PCoA.png" /></p>
+</div>
+<div id="tada" class="section level1">
+<h1>Tada!</h1>
+</div>

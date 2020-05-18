@@ -1,0 +1,39 @@
+---
+title: TreeSnatcher Plus
+author: Heidi Steiner
+date: '2020-05-11'
+slug: treesnatcher-plus
+categories: []
+tags:
+  - R Markdown
+  - dendrogram
+  - tree
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+Today I used TreeSnatcher Plus to convert an image of a dendrogram into functional data. I came across a publication of world cusines and thought it may be helpful data for another project I'm working on. I'm hoping to incorporate the dendrogram data to cluster individuals by their likely diet. 
+
+TreeSnatcher Plus is a GUI. I wasn't able to use the application on my Windows 10 desktop (probably user error). I downloaded the app on my Mac laptop and ran the program with no problems. Technical problems that is, there were plenty of difficulties sorting through the pipeline. 
+
+# Pipeline 
+The general pipeline I followed is listed next. I followed the tutorials given on the website for pre-processing of the image. There is a small screen for viewing your progress and I matched that screen to images in the given tutorials at <http://www.cibiv.at/software/treesnatcher/tutorials/>. 
+
+1. Screenshot of dendrogram of interest and crop to size 
+2. ```Open Image```
+3. Select ```Whole Image``` and 
+```Global Threshold``` and ```Rectangular```
+I tested a lot of different values here because my image had multiple colors for each group on the dendrogram.
+4. Select ```Locate Nodes```
+At this point, the program was selecting incorrect nodes. It was easy enough to move and delete nodes as needed. The process was not reproducible by any means. 
+5. Use ```Add Tip```
+I again did this section by hand as the program was not selecting tips.
+6. ```Calculate Branches```
+This took a few tries because of step 4 being incorrect the first few tries. 
+7. ```Toggle Newick View``` 
+8. ```read.tree``` from the ape package in R.
+
+I snatched that tree and have no idea what to do next! Pretty easy to use program overall and I will be on the lookout for more trees that may improve prediction in my dataset...more to come!
