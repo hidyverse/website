@@ -43,5 +43,4 @@ I love data visualization! Check out this plot that I made. It self annotatates 
 
 ![](Rplot.png)
 
-Learn more about me [here](../../) HMM this link doesn't work...
-Relative links not working and the issue isn't googling easily! 
+Learn more about my work [here](../../)  

@@ -8,6 +8,9 @@ tags: ["R Markdown", "plot", "16S"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
+library(qiime2R)
+library(viridis)
+library(tidyverse)
 ```
 
 # Qiime
@@ -28,17 +31,18 @@ For this project data visualization is the most important part because it's pilo
 
 First I uploaded the  Qiime2 output files needed to make my plot which was very straightforward following the documentation by Dr. Jordan Bisanz.  
 
-```{r eval = F}
-metadata<-read_q2metadata("/warfgi_qiime_meta.tsv")
-uwunifrac<-read_qza("/unweighted_unifrac_pcoa_results.qza")
-shannon<-read_qza("/shannon_vector.qza")$data %>% rownames_to_column("SampleID")
+```{r warning=FALSE, message=F}
+metadata<-read_tsv("warfgi_qiime_meta.tsv")
+colnames(metadata)[colnames(metadata) == "sampleid"] = "SampleID"
+uwunifrac<-read_qza("unweighted_unifrac_pcoa_results.qza")
+shannon<-read_qza("shannon_vector.qza")$data %>% rownames_to_column("SampleID")
 ```
 
 # Plotting
 
 Again, using code from the qiime2r documentation, I plotted the first two PCs with sizing by Alpha Diversity. 
 
-```{r eval = F}
+```{r warning=FALSE, message=F}
 uwunifrac$data$Vectors %>%
   select(SampleID, PC1, PC2) %>%
   left_join(metadata) %>%
@@ -51,6 +55,6 @@ uwunifrac$data$Vectors %>%
   scale_color_viridis(discrete = T, name = "patient")
 ```
 
-![](/PCoA.png)
+
 
 # Tada! 

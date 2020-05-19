@@ -27,9 +27,10 @@ tags: ["R Markdown", "plot", "16S"]
 <h1>Qiime outputs, R plots</h1>
 <p>For this project data visualization is the most important part because it’s pilot data for a new project. qiime2R has really good documentation; for details see <a href="https://github.com/jbisanz/qiime2R" class="uri">https://github.com/jbisanz/qiime2R</a>.</p>
 <p>First I uploaded the Qiime2 output files needed to make my plot which was very straightforward following the documentation by Dr. Jordan Bisanz.</p>
-<pre class="r"><code>metadata&lt;-read_q2metadata(&quot;/warfgi_qiime_meta.tsv&quot;)
-uwunifrac&lt;-read_qza(&quot;/unweighted_unifrac_pcoa_results.qza&quot;)
-shannon&lt;-read_qza(&quot;/shannon_vector.qza&quot;)$data %&gt;% rownames_to_column(&quot;SampleID&quot;)</code></pre>
+<pre class="r"><code>metadata&lt;-read_tsv(&quot;warfgi_qiime_meta.tsv&quot;)
+colnames(metadata)[colnames(metadata) == &quot;sampleid&quot;] = &quot;SampleID&quot;
+uwunifrac&lt;-read_qza(&quot;unweighted_unifrac_pcoa_results.qza&quot;)
+shannon&lt;-read_qza(&quot;shannon_vector.qza&quot;)$data %&gt;% rownames_to_column(&quot;SampleID&quot;)</code></pre>
 </div>
 <div id="plotting" class="section level1">
 <h1>Plotting</h1>
@@ -44,7 +45,7 @@ shannon&lt;-read_qza(&quot;/shannon_vector.qza&quot;)$data %&gt;% rownames_to_co
   scale_size_continuous(name=&quot;Shannon Diversity&quot;) +
   scale_color_discrete(name=&quot;Patient&quot;) + 
   scale_color_viridis(discrete = T, name = &quot;patient&quot;)</code></pre>
-<p><img src="/PCoA.png" /></p>
+<p><img src="/post/2020-05-05_qiime2r/2020-05-05_qiime2r_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="tada" class="section level1">
 <h1>Tada!</h1>
