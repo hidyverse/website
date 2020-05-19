@@ -1,49 +1,36 @@
 ---
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus
-  ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed
-  ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis
-  sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida
-  egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id
-  dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus.
-  Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: Limited information is available on racial/ethnic differences in pulmonary arterial hypertension (PAH). Determine effects of race/ethnicity and ancestry on mortality and disease outcomes in diverse patients with PAH. Group 1 PAH patients were included from two national registries with genome-wide data and two local cohorts and further incorporated in a global meta-analysis. Hazard ratios (HRs) were calculated for transplant-free all-cause mortality in Hispanics with Non-Hispanic whites (NHWs) as the reference group. Odds ratios (ORs) for inpatient-specific mortality in PAH patients were also calculated for race/ethnic groups from an additional National Inpatient Sample (NIS) dataset, not included in the meta-analysis. After covariate adjustment, self-reported Hispanics (n=290) exhibited significantly reduced mortality versus NHWs (n=1970) after global meta-analysis (HR 0.60[0.41-0.87], p=0.008). Although not significant, increasing Native American genetic ancestry appeared to account for part of the observed mortality benefit (HR 0.48[0.23-1.01], p=0.053) in the two national registries. Finally, in the NIS, an inpatient mortality benefit was also observed for Hispanics (n=1524) versus NHWs (n=8829; OR 0.65[0.50-0.84], p=0.001). An inpatient mortality benefit was observed for Native Americans (n=185; OR 0.38[0.15-0.93], p=0.034). This study demonstrates a reproducible survival benefit for Hispanic Group 1 PAH patients in multiple clinical settings. Our results implicate contributions of genetic ancestry to differential survival in PAH.
 authors:
+- Jason Karnes, PharmD, PhD
+- Talented Authors
 - admin
-- Robert Ford
-date: "2015-09-01T00:00:00Z"
-doi: ""
+- More Talented Authors
+- Ankit A. Desai
+date: "2020-01-09T00:00:00Z"
+doi: "10.1164/rccm.201907-1447OC"
 featured: false
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)'
+  caption: 
   focal_point: ""
   preview_only: false
 projects: []
-publication: '*Journal of Source Themes, 1*(1)'
+publication: '*American Journal of Respiratory and Critical Care Medicine*'
 publication_short: ""
 publication_types:
 - "2"
-publishDate: "2017-01-01T00:00:00Z"
-slides: example
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus
-  ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+publishDate: "2020-01-09T00:00:00Z"
+slides: false
+summary: This study demonstrates a reproducible survival benefit for Hispanic Group 1 PAH patients in multiple clinical settings. Our results implicate contributions of genetic ancestry to differential survival in PAH.
 tags:
 - Source Themes
-title: An example journal article
+title: Genetic Admixture and Survival in Diverse Populations with Pulmonary Arterial Hypertension
 url_code: ""
 url_dataset: ""
-url_pdf: http://arxiv.org/pdf/1512.04133v1
+url_pdf: false
 url_poster: ""
 url_project: ""
-url_slides: ""
+url_slides: false
 url_source: ""
 url_video: ""
 ---
 
-{{% alert note %}}
-Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-{{% /alert %}}
-
-{{% alert note %}}
-Click the *Slides* button above to demo Academic's Markdown slides feature.
-{{% /alert %}}
-
-Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).

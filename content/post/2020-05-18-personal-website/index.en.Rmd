@@ -25,7 +25,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 library(tidyverse)
 library(knitr)
 ```
-Creating a website has absolutely been a wild ride! 
+Creating a website has absolutely been a wild ride! I jumped between tutorials before finding the one I liked the best: Summer of Blogdown by Alison Hill. 
 
 Adding data to a post
 ```{r iris}
