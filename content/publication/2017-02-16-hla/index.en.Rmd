@@ -1,0 +1,42 @@
+---
+abstract: Imputation of human leukocyte antigen (HLA) alleles from SNP-level data is attractive due to importance of HLA alleles in human disease, widespread availability of genome-wide association study (GWAS) data, and expertise required for HLA sequencing. However, comprehensive evaluations of HLA imputations programs are limited. We compared HLA imputation results of HIBAG, SNP2HLA, and HLA*IMP:02 to sequenced HLA alleles in 3,265 samples from BioVU, a de-identified electronic health record database coupled to a DNA biorepository. We performed four-digit HLA sequencing for HLA-A, -B, -C, -DRB1, -DPB1, and -DQB1 using long-read 454 FLX sequencing. All samples were genotyped using both the Illumina HumanExome BeadChip platform and a GWAS platform. Call rates and concordance rates were compared by platform, frequency of allele, and race/ethnicity. Overall concordance rates were similar between programs in European Americans (EA) (0.975 [SNP2HLA]; 0.939 [HLA*IMP:02]; 0.976 [HIBAG]). SNP2HLA provided a significant advantage in terms of call rate and the number of alleles imputed. Concordance rates were lower overall for African Americans (AAs). These observations were consistent when accuracy was compared across HLA loci. All imputation programs performed similarly for low frequency HLA alleles. Higher concordance rates were observed when HLA alleles were imputed from GWAS platforms versus the HumanExome BeadChip, suggesting that high genomic coverage is preferred as input for HLA allelic imputation. These findings provide guidance on the best use of HLA imputation methods and elucidate their limitations.
+authors:
+ - Jason H. Karnes
+ - Christian M Shaffer
+ - Lisa Bastarache
+ - Silvana Gaudieri
+ - Andrew M Glazer
+ - author
+ - Jonathan D Mosley
+ - Simon Mallal
+ - Joshua C Denny
+ - Elizabeth J Phillips  
+ - Dan M Roden
+date: "2017-02-16T00:00:00Z"
+doi: "10.1371/journal.pone.0172444"
+featured: false
+image:
+  caption: 
+  focal_point: ""
+  preview_only: false
+projects: []
+publication: '*PLoS One*'
+publication_short: ""
+publication_types:
+- "2"
+publishDate: "2017-02-16T00:00:00Z"
+slides: false
+summary: Imputation of human leukocyte antigen (HLA) alleles from SNP-level data is attractive due to importance of HLA alleles in human disease, widespread availability of genome-wide association study (GWAS) data, and expertise required for HLA sequencing. We compared HLA imputation results of HIBAG, SNP2HLA, and HLA*IMP:02 to sequenced HLA alleles in 3,265 samples from BioVU, a de-identified electronic health record database coupled to a DNA biorepository. Our findings provide guidance on the best use of HLA imputation methods and elucidate their limitations.
+tags:
+- Source Themes
+title: Comparison of HLA Allelic Imputation Programs
+url_code: ""
+url_dataset: ""
+url_pdf: false
+url_poster: ""
+url_project: "" 
+url_slides: false
+url_source: ""
+url_video: ""
+---
+
