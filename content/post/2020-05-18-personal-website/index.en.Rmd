@@ -1,5 +1,5 @@
 ---
-title: Personal Website Testing
+title: Personal Website with Blogdown
 author: Heidi Steiner
 date: '2020-05-18'
 slug: personal-website
@@ -9,6 +9,8 @@ tags:
   - Hugo
   - R Markdown
   - GitHub
+  - blogdown
+  - Academic
 subtitle: ''
 summary: ''
 authors: []
@@ -25,22 +27,27 @@ knitr::opts_chunk$set(collapse = TRUE)
 library(tidyverse)
 library(knitr)
 ```
-Creating a website has absolutely been a wild ride! I jumped between tutorials before finding the one I liked the best: Summer of Blogdown by Alison Hill. 
+Creating a website has absolutely been a wild ride! I jumped between tutorials (and themes and hosts and generators) before finding the one I liked the best: [Summer of Blogdown](https://summer-of-blogdown.netlify.app/) by Alison Hill. 
 
-Adding data to a post
-```{r iris}
-knitr::kable(head(iris))
-```
+The basic steps are as follows:
 
-```{r echo = F, warning=F}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species, group = Species)) + 
-  geom_point() +
-  geom_smooth(method = "lm", se = F) + 
-  theme_bw() 
-```
+1. Create a new GitHub repository (or fork from a hugo theme you like)
 
-I love data visualization! Check out this plot that I made. It self annotatates the top hits in every chromosome (above suggestive significance). 
+2. Create new RStudio project via git clone (File > New Project > Version Control > Git)
 
-![](Rplot.png)
+3. Build the site...make sure to ```update_hugo()```, ```file.create("netlify.toml")```, and create a ```.gitignore``` file
 
-Learn more about my work [here](../../)  
+4. Commit/Push to GitHub
+
+5. Sign up for netlify (free)
+
+6. Link GitHub website repository to netlify account
+
+7. Configure ```config.toml``` file in the root of your project
+
+8. Commit/Push
+
+9. Enjoy almost instant site deploys! 
+
+
+In the [Summer of Blogdown](https://summer-of-blogdown.netlify.app/) tutorial I learned to do all this and more. Personalizing this site isn't a breeze but it's not difficult either. 

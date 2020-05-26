@@ -1,0 +1,280 @@
+---
+title: 'Multiple Linear Regression '
+author: Heidi Steiner
+date: '2020-05-20'
+slug: multiple-linear-regression
+categories:
+  - R
+tags:
+  - biostatistics
+  - R Markdown
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-05-20T19:31:43-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p><em>Linear Regression</em> is using a straight line to describe a relationship between variables. It finds the best possible fit through minimizing “error” of the model.
+<strong>Simple linear regression</strong> uses one independent variable and one dependent variable and <strong>multiple linear regression</strong> uses more than one independent variable with one dependent variable. <strong>Multi<em>variate</em> linear regression</strong> uses more than one dependent variable. I most often use multiple linear regression so I’ll discuss that here.</p>
+<div id="load-your-packages" class="section level3">
+<h3>1. Load your packages</h3>
+<pre class="r"><code>library(ggplot2)
+library(dplyr)
+library(broom)
+library(ggpubr)
+library(moderndive)
+library(readr)
+library(readxl)
+library(skimr)</code></pre>
+</div>
+<div id="load-the-data" class="section level3">
+<h3>2. Load the data</h3>
+<pre class="r"><code>data = read_xls(&quot;PS206767-553247439.xls&quot;, sheet = 2)
+data = data %&gt;% 
+  select(1, 4, 10, 39) %&gt;% 
+  mutate(height = as.numeric(`Height (cm)`), 
+         dose = as.numeric(`Therapeutic Dose of Warfarin`), 
+         gender = as.factor(Gender)) %&gt;% 
+  select(1, 5:7) %&gt;% 
+  filter(gender != &quot;NA&quot;)</code></pre>
+<p><code>data</code> should have appeared in your <code>Global Environment</code> (in the upper right side of the RStudio screen)</p>
+<p>After you load data, always check it out to make sure you called what you meant to…I like <code>skim</code> or <code>glimpse</code> for this</p>
+<pre class="r"><code>skim(data) </code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">data</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">5696</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">factor</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">PharmGKB Subject ID</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">5696</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">ordered</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">gender</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">FALSE</td>
+<td align="right">2</td>
+<td align="left">mal: 3323, fem: 2373, NA: 0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">height</td>
+<td align="right">1146</td>
+<td align="right">0.80</td>
+<td align="right">168.04</td>
+<td align="right">10.84</td>
+<td align="right">124.97</td>
+<td align="right">160.02</td>
+<td align="right">167.89</td>
+<td align="right">176.02</td>
+<td align="right">202</td>
+<td align="left">▁▂▇▆▁</td>
+</tr>
+<tr class="even">
+<td align="left">dose</td>
+<td align="right">172</td>
+<td align="right">0.97</td>
+<td align="right">30.99</td>
+<td align="right">16.80</td>
+<td align="right">2.10</td>
+<td align="right">19.53</td>
+<td align="right">28.00</td>
+<td align="right">38.50</td>
+<td align="right">315</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>glimpse(data)</code></pre>
+<pre><code>## Rows: 5,696
+## Columns: 4
+## $ `PharmGKB Subject ID` &lt;chr&gt; &quot;PA135312261&quot;, &quot;PA135312262&quot;, &quot;PA135312263&quot;, &quot;P…
+## $ height                &lt;dbl&gt; 193.040, 176.530, 162.560, 182.245, 167.640, 17…
+## $ dose                  &lt;dbl&gt; 49, 42, 53, 28, 42, 49, 42, 71, 18, 17, 97, 49,…
+## $ gender                &lt;fct&gt; male, female, female, male, male, male, male, m…</code></pre>
+<p><strong><em>Check for correlation</em></strong></p>
+<pre class="r"><code>data %&gt;% get_correlation(dose ~ height, na.rm = T)</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##     cor
+##   &lt;dbl&gt;
+## 1 0.315</code></pre>
+<p>Just to get an idea of the linear relationship….there is about 30% correlation here between our outcome variable and the continous predictor, height.</p>
+</div>
+<div id="check-your-assumptions" class="section level3">
+<h3>3. Check your assumptions</h3>
+<p>There are a number of assumptions that need to be correct in order to properly use multiple regression.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Independence of observations</strong></li>
+</ol>
+<p>Independence of observations means each participant is only counted as one observation. The statistical assumption of independence of observations stipulates that all participants in a sample are only counted once.
+This is satisfied if we’re using one observation per person.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Normality</strong></li>
+</ol>
+<p>Use <code>hist()</code> to test the <em>dependent</em> varible for a normal distribution.</p>
+<pre class="r"><code>hist(data$dose)</code></pre>
+<p><img src="/post/2020-05-20-multiple-linear-regression/index.en_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>This distrubtion is a lil’ skewed and we should log transform the data.</p>
+<pre class="r"><code>data$outcome = log(data$dose)</code></pre>
+<p>and re-plot…
+<img src="/post/2020-05-20-multiple-linear-regression/index.en_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>This plot is much more bell-shaped and we can move on.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Linearity</strong> should be assessed using scatterplots of the outcome (dependent) variable with each of the included predictors (independent variables).</li>
+</ol>
+<pre class="r"><code>data %&gt;% filter(gender != &quot;NA&quot;) %&gt;% ggplot(aes(outcome, height, group = gender, color = gender)) + geom_point() +
+  geom_parallel_slopes(se = F) +
+  theme_bw()</code></pre>
+<p><img src="/post/2020-05-20-multiple-linear-regression/index.en_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+In this plot we’ve visualized both the numeric predictor variable, height, and the factor predictor, gender, by setting the aesthetics for each of these variables.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong><em>Homoscedasticity</em></strong>
+The fourth assumption is equal variance among the residuals…which we will test after running the model by plotting residuals.</li>
+</ol>
+<div id="run-the-model" class="section level4">
+<h4>4. Run the model</h4>
+<p>Linear regression syntax is super straighforward in R. The model is given as <code>outcome ~ predictor + predictor</code> and you can call it with the <code>lm()</code> function. I’ve included the wrapper <code>summary()</code> so we can get the statistics back from the regression. Alternatively, use the <code>moderndive</code> package and <code>get_regression_table()</code> to get the same output.</p>
+<pre class="r"><code>summary(lm(data = data, outcome ~ gender + height))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = outcome ~ gender + height, data = data)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.95202 -0.28410  0.03265  0.32105  2.78849 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.7451039  0.1385046   -5.38 7.85e-08 ***
+## gendermale  -0.2720412  0.0190291  -14.30  &lt; 2e-16 ***
+## height       0.0250611  0.0008626   29.05  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.4912 on 4440 degrees of freedom
+##   (1253 observations deleted due to missingness)
+## Multiple R-squared:  0.163,  Adjusted R-squared:  0.1626 
+## F-statistic: 432.3 on 2 and 4440 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>or use <code>moderndive</code>…</p>
+<pre class="r"><code>get_regression_table(lm(data = data, outcome ~ gender + height))</code></pre>
+<pre><code>## # A tibble: 3 x 7
+##   term       estimate std_error statistic p_value lower_ci upper_ci
+##   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 intercept    -0.745     0.139     -5.38       0   -1.02    -0.474
+## 2 gendermale   -0.272     0.019    -14.3        0   -0.309   -0.235
+## 3 height        0.025     0.001     29.1        0    0.023    0.027</code></pre>
+</div>
+<div id="plot-residuals" class="section level4">
+<h4>5. Plot Residuals</h4>
+<p>Super important to come back and check homoscedasticity (equal variance) of the residuals. Do this by plotting the same <code>lm()</code> used previously.</p>
+<pre class="r"><code>par(mfrow = c(2,2)) ## show 4 plots at once
+plot(lm(data = data, outcome ~ gender + height)) ## plot residuals</code></pre>
+<p><img src="/post/2020-05-20-multiple-linear-regression/index.en_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>What you want here is, basically, horizontal lines centered around 0 for each of the plots except the Q-Q plot which should follow along the theoretical quantiles.</p>
+<p>That’s really the basics of linear regression in R. There are tons of other fun things to do here, like plotting residuals, that I hope to tackle next!</p>
+</div>
+</div>

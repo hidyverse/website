@@ -1,0 +1,129 @@
+---
+title: 'Multiple Linear Regression '
+author: Heidi Steiner
+date: '2020-05-20'
+slug: multiple-linear-regression
+categories:
+  - R
+tags:
+  - biostatistics
+  - R Markdown
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-05-20T19:31:43-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+*Linear Regression* is using a straight line to describe a relationship between variables. It finds the best possible fit through minimizing "error" of the model. 
+**Simple linear regression** uses one independent variable and one dependent variable and **multiple linear regression** uses more than one independent variable with one dependent variable. **Multi*variate* linear regression** uses more than one dependent variable. I most often use multiple linear regression so I'll discuss that here. 
+
+### 1. Load your packages
+```{r message = F, warning = F}
+library(ggplot2)
+library(dplyr)
+library(broom)
+library(ggpubr)
+library(moderndive)
+library(readr)
+library(readxl)
+library(skimr)
+```
+
+### 2. Load the data 
+```{r message = F, warning=F}
+data = read_xls("PS206767-553247439.xls", sheet = 2)
+data = data %>% 
+  select(1, 4, 10, 39) %>% 
+  mutate(height = as.numeric(`Height (cm)`), 
+         dose = as.numeric(`Therapeutic Dose of Warfarin`), 
+         gender = as.factor(Gender)) %>% 
+  select(1, 5:7) %>% 
+  filter(gender != "NA")
+```
+```data``` should have appeared in your ```Global Environment``` (in the upper right side of the RStudio screen)
+
+After you load data, always check it out to make sure you called what you meant to...I like ```skim``` or ```glimpse``` for this
+
+```{r}
+skim(data) 
+```
+```{r}
+glimpse(data)
+```
+
+***Check for correlation***
+```{r}
+data %>% get_correlation(dose ~ height, na.rm = T)
+```
+Just to get an idea of the linear relationship....there is about 30% correlation here between our outcome variable and the continous predictor, height. 
+
+
+### 3. Check your assumptions
+
+There are a number of assumptions that need to be correct in order to properly use multiple regression. 
+
+1. **Independence of observations** 
+
+Independence of observations means each participant is only counted as one observation. The statistical assumption of independence of observations stipulates that all participants in a sample are only counted once.
+This is satisfied if we're using one observation per person. 
+
+
+2. **Normality**
+
+Use ```hist()``` to test the *dependent* varible for a normal distribution.
+
+```{r}
+hist(data$dose)
+```
+
+This distrubtion is a lil' skewed and we should log transform the data. 
+
+```{r message = F}
+data$outcome = log(data$dose)
+```
+
+and re-plot...
+```{r echo = F}
+hist(data$outcome)
+```
+
+This plot is much more bell-shaped and we can move on. 
+
+3. **Linearity** should be assessed using scatterplots of the outcome (dependent) variable with each of the included predictors (independent variables).
+
+```{r warning= F}
+data %>% filter(gender != "NA") %>% ggplot(aes(outcome, height, group = gender, color = gender)) + geom_point() +
+  geom_parallel_slopes(se = F) +
+  theme_bw()
+```
+In this plot we've visualized both the numeric predictor variable, height, and the factor predictor, gender, by setting the aesthetics for each of these variables. 
+
+4. ***Homoscedasticity***
+The fourth assumption is equal variance among the residuals...which we will test after running the model by plotting residuals. 
+
+#### 4. Run the model 
+Linear regression syntax is super straighforward in R. The model is given as ```outcome ~ predictor + predictor``` and you can call it with the ```lm()``` function. I've included the wrapper ```summary()``` so we can get the statistics back from the regression. Alternatively, use the ```moderndive``` package and ```get_regression_table()``` to get the same output. 
+```{r}
+summary(lm(data = data, outcome ~ gender + height))
+```
+or use ```moderndive```...
+```{r}
+get_regression_table(lm(data = data, outcome ~ gender + height))
+```
+#### 5. Plot Residuals
+
+Super important to come back and check homoscedasticity (equal variance) of the residuals. Do this by plotting the same ```lm()``` used previously. 
+```{r}
+par(mfrow = c(2,2)) ## show 4 plots at once
+plot(lm(data = data, outcome ~ gender + height)) ## plot residuals
+```
+
+What you want here is, basically, horizontal lines centered around 0 for each of the plots except the Q-Q plot which should follow along the theoretical quantiles. 
+
+That's really the basics of linear regression in R. There are tons of other fun things to do here, like plotting residuals, that I hope to tackle next! 

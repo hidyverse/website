@@ -1,5 +1,5 @@
 ---
-title: Personal Website Testing
+title: Personal Website with Blogdown
 author: Heidi Steiner
 date: '2020-05-18'
 slug: personal-website
@@ -9,6 +9,8 @@ tags:
   - Hugo
   - R Markdown
   - GitHub
+  - blogdown
+  - Academic
 subtitle: ''
 summary: ''
 authors: []
@@ -23,66 +25,17 @@ projects: []
 
 
 
-<p>Creating a website has absolutely been a wild ride! I jumped between tutorials before finding the one I liked the best: Summer of Blogdown by Alison Hill.</p>
-<p>Adding data to a post</p>
-<pre class="r"><code>knitr::kable(head(iris))</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/post/2020-05-18-personal-website/index.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>I love data visualization! Check out this plot that I made. It self annotatates the top hits in every chromosome (above suggestive significance).</p>
-<p><img src="Rplot.png" /></p>
-<p>Learn more about my work <a href="../../">here</a></p>
+<p>Creating a website has absolutely been a wild ride! I jumped between tutorials (and themes and hosts and generators) before finding the one I liked the best: <a href="https://summer-of-blogdown.netlify.app/">Summer of Blogdown</a> by Alison Hill.</p>
+<p>The basic steps are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a new GitHub repository (or fork from a hugo theme you like)</p></li>
+<li><p>Create new RStudio project via git clone (File &gt; New Project &gt; Version Control &gt; Git)</p></li>
+<li><p>Build the site…make sure to <code>update_hugo()</code>, <code>file.create(&quot;netlify.toml&quot;)</code>, and create a <code>.gitignore</code> file</p></li>
+<li><p>Commit/Push to GitHub</p></li>
+<li><p>Sign up for netlify (free)</p></li>
+<li><p>Link GitHub website repository to netlify account</p></li>
+<li><p>Configure <code>config.toml</code> file in the root of your project</p></li>
+<li><p>Commit/Push</p></li>
+<li><p>Enjoy almost instant site deploys!</p></li>
+</ol>
+<p>In the <a href="https://summer-of-blogdown.netlify.app/">Summer of Blogdown</a> tutorial I learned to do all this and more. Personalizing this site isn’t a breeze but it’s not difficult either.</p>
