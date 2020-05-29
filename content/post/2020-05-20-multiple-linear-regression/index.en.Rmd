@@ -33,6 +33,7 @@ library(moderndive)
 library(readr)
 library(readxl)
 library(skimr)
+library(tidyverse)
 ```
 
 ### 2. Load the data 
@@ -44,7 +45,8 @@ data = data %>%
          dose = as.numeric(`Therapeutic Dose of Warfarin`), 
          gender = as.factor(Gender)) %>% 
   select(1, 5:7) %>% 
-  filter(gender != "NA")
+  filter(gender != "NA") %>% 
+  drop_na()
 ```
 ```data``` should have appeared in your ```Global Environment``` (in the upper right side of the RStudio screen)
 
@@ -53,12 +55,12 @@ After you load data, always check it out to make sure you called what you meant 
 ```{r}
 skim(data) 
 ```
-```{r}
+```{r comment = ""}
 glimpse(data)
 ```
 
 ***Check for correlation***
-```{r}
+```{r comment = ""}
 data %>% get_correlation(dose ~ height, na.rm = T)
 ```
 Just to get an idea of the linear relationship....there is about 30% correlation here between our outcome variable and the continous predictor, height. 
@@ -109,21 +111,49 @@ The fourth assumption is equal variance among the residuals...which we will test
 
 #### 4. Run the model 
 Linear regression syntax is super straighforward in R. The model is given as ```outcome ~ predictor + predictor``` and you can call it with the ```lm()``` function. I've included the wrapper ```summary()``` so we can get the statistics back from the regression. Alternatively, use the ```moderndive``` package and ```get_regression_table()``` to get the same output. 
-```{r}
-summary(lm(data = data, outcome ~ gender + height))
+```{r comment = ""}
+fit = lm(data = data, outcome ~ gender + height)
+summary(fit)
 ```
 or use ```moderndive```...
-```{r}
-get_regression_table(lm(data = data, outcome ~ gender + height))
+```{r comment = ""}
+get_regression_table(fit)
 ```
 #### 5. Plot Residuals
 
-Super important to come back and check homoscedasticity (equal variance) of the residuals. Do this by plotting the same ```lm()``` used previously. 
-```{r}
+Super important to come back and check homoscedasticity (equal variance) of the residuals. Do this by plotting the same ```lm()``` used previously. Residuals are calculated from model error and you can think about them as unexplained variance. 
+```{r comment = ""}
 par(mfrow = c(2,2)) ## show 4 plots at once
-plot(lm(data = data, outcome ~ gender + height)) ## plot residuals
+plot(fit) ## plot residuals
 ```
 
 What you want here is, basically, horizontal lines centered around 0 for each of the plots except the Q-Q plot which should follow along the theoretical quantiles. 
 
-That's really the basics of linear regression in R. There are tons of other fun things to do here, like plotting residuals, that I hope to tackle next! 
+
+```{r comment = ""}
+data$predicted <- predict(fit)   # Save the predicted values
+data$residuals <- residuals(fit) # Save the residual values
+
+# Quick look at the actual, predicted, and residual values
+
+data %>% select(outcome, predicted, residuals) %>% head()
+```
+
+Here's another, much prettier plot of residuals. 
+
+```{r}
+data %>% 
+  sample_frac(.5) %>% 
+  gather(key = "gender", value = "x", -outcome, -predicted, -`PharmGKB Subject ID`, -residuals, -dose, -height) %>%  # Get data into shape
+  ggplot(aes(x = height, y = outcome)) +  
+  geom_segment(aes(xend = height, yend = predicted), alpha = .2) +
+  geom_point(aes(color = residuals)) +
+  scale_color_gradient2(low = "blue", mid = "white", high = "red") +
+  guides(color = FALSE) +
+  geom_point(aes(y = predicted), color = "gray", alpha = .5) +
+  facet_grid(~ x, scales = "free_x") +  # Split panels here by `iv`
+  theme_gray()
+```
+
+
+That's really the basics of performing a linear regression in R. 

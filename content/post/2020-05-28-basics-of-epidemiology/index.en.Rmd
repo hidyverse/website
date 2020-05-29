@@ -1,0 +1,120 @@
+---
+title: Basics of Epidemiology
+author: Heidi Steiner
+date: '2020-05-28'
+slug: basics-of-epidemiology
+categories: []
+tags:
+  - epi
+  - R Markdown
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-05-28T16:32:41-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Foreward: I decided to review my coursework for my comprehensive exams. Inspired by my linear regression review, these next posts will review basic topics that I learned in my PhD coursework. 
+
+# Epidemiology 
+
+The goal of public health is to promote the health of the population through organized community efforts. A cornerstone of public health, epidemiology is the study and analysis of the distribution, patterns and determinants of health and disease conditions in defined populations.
+
+Epidemiology's objectives:
+
+1. Study natural course of disease 
+
+2. Determine extent of disease in a population
+
+3. Identify patterns/trends in disease occurrence
+
+4. Identify the cause of disease
+
+5. Evaulate the effectivess of disease prevention/treatment
+
+## Causation
+
+The fourth objective of epi above is identifying the *cause* of disease. Observing an association between an outcome and predictor is not enough to infer causation. There needs to be a i) statistical association, ii) temporal relationship, and directionality of consequence. 
+
+#### Hill's Guidelines for Assessing Causation
+
+Hill's criteria for causation are a group of 9 principles that can be useful in establishing epidemiologic evidence of a causal relationship. 
+
+- **Strength of association** – large associations are more likely to be causal 
+
+- **Consistency** – replication increases confidence that association is not due to error or fallacy 
+
+- **Specificity** – cause should lead to a single effect 
+
+- **Temporality** – time order 
+
+- **Biological Gradient** – strength increases as exposure level increases
+
+- **Plausibility** – existing biological or social model to explain the association
+
+- **Coherence** – cause and effect interpretation should not conflict with general knowledge 
+
+- **Experiment** – a method for testing a causal hypothesis
+
+- **Analogy** – similarities between observed association with any other associations
+
+## Measuring Disease Frequency 
+
+#### Incidence vs Prevalence
+
+Incidence is the occurance of **new** cases of disease that develop in a *candidate* population e.g. only women are *at risk* for uterine cancer.  
+
+Cumulative **incidence** is the proportion of a populattion that becomes diseased over a certain time period. An incidence rate is the occurance of new cases that arise during the time of observation.
+
+**Prevalence** is the frequency of *existing* disease in a population. 
+
+
+## Comparisons
+
+#### Exposure
+
+A particular characteristic of interest in epi is often called an *exposure*. Those with a disease are the exposed group. Often in epidemiological studies, the aim is to compare two groups, exposed vs unexposed. The results of such a study can be visualized with a 2x2 table such as: 
+
+```{r comment = ""}
+trial <- matrix(c(34,11,9,32), ncol=2)
+colnames(trial) <- c('disease', 'no disease')
+rownames(trial) <- c('exposed', 'unexposed')
+
+trial
+```
+
+#### Risk
+
+Risk is the *ratio* of the number of people developing the outcome of interest *over a specific time period* to the total number of subjects. Expressed as a percentage or proportion, risk can only be interpreted if the time period to which the risk applies is defined. For instance, the risk of death in the next 200 years is 100%, while the risk of death in the next week will be very small for most people.
+
+
+##### Relative Risk
+
+Relative risk reflects the strength of an association between an exposure and an outcome. The relative risk is the ratio of the risk in the exposed group to the risk in the unexposed group. Depending on the study design and statistical methods applied, the relative risk can be presented using different measures of effect, such as the incidence rate ratio and hazard ratio.
+
+##### Absolute Risk 
+
+The absolute risk difference, aka attrbutable proportion, is the excess proportion of disease in a population. This absolute measure of effect represents the difference between the risks in the two groups.
+
+## Study Design 
+
+Choosing the right study design is the most important decision to make in determining the methodology of any research study(!?). I will list some common study designs next. Every design has a host of advantages and disadvantages that need to be weighed before starting any research study!  
+
+- **Experimental** - Experimental studies invovle active manipulation to a group under study and is an umbrella category for numerous types of studies. An obvious example of an experimental study is a drug trial where one group is given a drug and another group placebo. Experimental study designs include paralell, crossover and factorial. 
+
+Any study that is not experimental is likely observational (passive observation of groups). 
+
+- **Cohort** - A cohort study is an observational study in which subjects are defined according to *exposure* status before determining incidence of disease. Cohort studies may be prospective, retrospective or ambidirectional. In genetic research, exposure is often presence or absence of a particular variant! 
+
+- **Case-control** - In a case-control study, subjects are defined as cases or controls before exposures are compared. The result of a case-control study is an odds ratio, or, the oddss of being a case among the exposed compared to nonexposed. 
+
+- **Cross-sectional** - A cross sectional study examines a single period of time.
+
+- **Ecological** - Ecological studies examine population level data as opposed to all the other studies listed which use individual level data. 
+
+Epi is super relevant right now with there being a pandemic and such. Thanks for brushing up on some *Introduction to Epidemiology* with me! 

@@ -1,0 +1,106 @@
+---
+title: Basics of Epidemiology
+author: Heidi Steiner
+date: '2020-05-28'
+slug: basics-of-epidemiology
+categories: []
+tags:
+  - epi
+  - R Markdown
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-05-28T16:32:41-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Foreward: I decided to review my coursework for my comprehensive exams. Inspired by my linear regression review, these next posts will review basic topics that I learned in my PhD coursework.</p>
+<div id="epidemiology" class="section level1">
+<h1>Epidemiology</h1>
+<p>The goal of public health is to promote the health of the population through organized community efforts. A cornerstone of public health, epidemiology is the study and analysis of the distribution, patterns and determinants of health and disease conditions in defined populations.</p>
+<p>Epidemiology’s objectives:</p>
+<ol style="list-style-type: decimal">
+<li><p>Study natural course of disease</p></li>
+<li><p>Determine extent of disease in a population</p></li>
+<li><p>Identify patterns/trends in disease occurrence</p></li>
+<li><p>Identify the cause of disease</p></li>
+<li><p>Evaulate the effectivess of disease prevention/treatment</p></li>
+</ol>
+<div id="causation" class="section level2">
+<h2>Causation</h2>
+<p>The fourth objective of epi above is identifying the <em>cause</em> of disease. Observing an association between an outcome and predictor is not enough to infer causation. There needs to be a i) statistical association, ii) temporal relationship, and directionality of consequence.</p>
+<div id="hills-guidelines-for-assessing-causation" class="section level4">
+<h4>Hill’s Guidelines for Assessing Causation</h4>
+<p>Hill’s criteria for causation are a group of 9 principles that can be useful in establishing epidemiologic evidence of a causal relationship.</p>
+<ul>
+<li><p><strong>Strength of association</strong> – large associations are more likely to be causal</p></li>
+<li><p><strong>Consistency</strong> – replication increases confidence that association is not due to error or fallacy</p></li>
+<li><p><strong>Specificity</strong> – cause should lead to a single effect</p></li>
+<li><p><strong>Temporality</strong> – time order</p></li>
+<li><p><strong>Biological Gradient</strong> – strength increases as exposure level increases</p></li>
+<li><p><strong>Plausibility</strong> – existing biological or social model to explain the association</p></li>
+<li><p><strong>Coherence</strong> – cause and effect interpretation should not conflict with general knowledge</p></li>
+<li><p><strong>Experiment</strong> – a method for testing a causal hypothesis</p></li>
+<li><p><strong>Analogy</strong> – similarities between observed association with any other associations</p></li>
+</ul>
+</div>
+</div>
+<div id="measuring-disease-frequency" class="section level2">
+<h2>Measuring Disease Frequency</h2>
+<div id="incidence-vs-prevalence" class="section level4">
+<h4>Incidence vs Prevalence</h4>
+<p>Incidence is the occurance of <strong>new</strong> cases of disease that develop in a <em>candidate</em> population e.g. only women are <em>at risk</em> for uterine cancer.</p>
+<p>Cumulative <strong>incidence</strong> is the proportion of a populattion that becomes diseased over a certain time period. An incidence rate is the occurance of new cases that arise during the time of observation.</p>
+<p><strong>Prevalence</strong> is the frequency of <em>existing</em> disease in a population.</p>
+</div>
+</div>
+<div id="comparisons" class="section level2">
+<h2>Comparisons</h2>
+<div id="exposure" class="section level4">
+<h4>Exposure</h4>
+<p>A particular characteristic of interest in epi is often called an <em>exposure</em>. Those with a disease are the exposed group. Often in epidemiological studies, the aim is to compare two groups, exposed vs unexposed. The results of such a study can be visualized with a 2x2 table such as:</p>
+<pre class="r"><code>trial &lt;- matrix(c(34,11,9,32), ncol=2)
+colnames(trial) &lt;- c(&#39;disease&#39;, &#39;no disease&#39;)
+rownames(trial) &lt;- c(&#39;exposed&#39;, &#39;unexposed&#39;)
+
+trial</code></pre>
+<pre><code>          disease no disease
+exposed        34          9
+unexposed      11         32</code></pre>
+</div>
+<div id="risk" class="section level4">
+<h4>Risk</h4>
+<p>Risk is the <em>ratio</em> of the number of people developing the outcome of interest <em>over a specific time period</em> to the total number of subjects. Expressed as a percentage or proportion, risk can only be interpreted if the time period to which the risk applies is defined. For instance, the risk of death in the next 200 years is 100%, while the risk of death in the next week will be very small for most people.</p>
+<div id="relative-risk" class="section level5">
+<h5>Relative Risk</h5>
+<p>Relative risk reflects the strength of an association between an exposure and an outcome. The relative risk is the ratio of the risk in the exposed group to the risk in the unexposed group. Depending on the study design and statistical methods applied, the relative risk can be presented using different measures of effect, such as the incidence rate ratio and hazard ratio.</p>
+</div>
+<div id="absolute-risk" class="section level5">
+<h5>Absolute Risk</h5>
+<p>The absolute risk difference, aka attrbutable proportion, is the excess proportion of disease in a population. This absolute measure of effect represents the difference between the risks in the two groups.</p>
+</div>
+</div>
+</div>
+<div id="study-design" class="section level2">
+<h2>Study Design</h2>
+<p>Choosing the right study design is the most important decision to make in determining the methodology of any research study(!?). I will list some common study designs next. Every design has a host of advantages and disadvantages that need to be weighed before starting any research study!</p>
+<ul>
+<li><strong>Experimental</strong> - Experimental studies invovle active manipulation to a group under study and is an umbrella category for numerous types of studies. An obvious example of an experimental study is a drug trial where one group is given a drug and another group placebo. Experimental study designs include paralell, crossover and factorial.</li>
+</ul>
+<p>Any study that is not experimental is likely observational (passive observation of groups).</p>
+<ul>
+<li><p><strong>Cohort</strong> - A cohort study is an observational study in which subjects are defined according to <em>exposure</em> status before determining incidence of disease. Cohort studies may be prospective, retrospective or ambidirectional. In genetic research, exposure is often presence or absence of a particular variant!</p></li>
+<li><p><strong>Case-control</strong> - In a case-control study, subjects are defined as cases or controls before exposures are compared. The result of a case-control study is an odds ratio, or, the oddss of being a case among the exposed compared to nonexposed.</p></li>
+<li><p><strong>Cross-sectional</strong> - A cross sectional study examines a single period of time.</p></li>
+<li><p><strong>Ecological</strong> - Ecological studies examine population level data as opposed to all the other studies listed which use individual level data.</p></li>
+</ul>
+<p>Epi is super relevant right now with there being a pandemic and such. Thanks for brushing up on some <em>Introduction to Epidemiology</em> with me!</p>
+</div>
+</div>
