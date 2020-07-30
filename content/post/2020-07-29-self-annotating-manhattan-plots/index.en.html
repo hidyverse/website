@@ -42,18 +42,23 @@ topgene = gene_result %&gt;% filter(topsnp$CHR == gene_result$chrom &amp;
                                     topsnp$BP &gt;  gene_result$txStart &amp;
                                     gene_result$txEnd &gt; topsnp$BP)</code></pre>
 <p>I located the top genes with a few more lines of code…</p>
-<pre class="r"><code>topgene_out_fn = function(topsnps){
-  gene_result %&gt;%     filter(topsnps$CHR == gene_result$chrom &amp;
-                               topsnps$BP &gt;  gene_result$txStart - 500000 &amp;                                     gene_result$txEnd + 500000 &gt; topsnps$BP)
-  
-}
+<pre class="r"><code>topgene_out_fn = 
+  function(topsnps){
+    gene_result %&gt;%     
+      filter(topsnps$CHR == gene_result$chrom &amp;
+               topsnps$BP &gt;  gene_result$txStart - 500000 &amp; 
+               gene_result$txEnd + 500000 &gt; topsnps$BP)
+  }
 
-topgenes_out = by(topsnps, topsnps$CHR, function(topsnps) topgene_out_fn(topsnps))
+topgenes_out = 
+  by(topsnps, topsnps$CHR, function(topsnps) topgene_out_fn(topsnps))
 
-topgenes_out = do.call(rbind.data.frame, topgenes_out)
+topgenes_out = 
+  do.call(rbind.data.frame, topgenes_out)
 
 ## remove dups? 
-is_duplicate_out &lt;- lapply(X = topgenes_out, FUN = duplicated, incomparables = FALSE)
+is_duplicate_out &lt;- 
+  lapply(X = topgenes_out, FUN = duplicated, incomparables = FALSE)
 
 
 drop_idx_out &lt;- which(is_duplicate_out$name)
