@@ -1,0 +1,91 @@
+---
+title: Self-Annotating Manhattan Plots
+author: Heidi Steiner
+date: '2020-07-29'
+slug: self-annotating-manhattan-plots
+categories:
+  - R
+tags:
+  - R
+  - ggplot2
+  - plot
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-29T17:33:22-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="significance-skyline-with-manhattan-plots" class="section level1">
+<h1>Significance Skyline with Manhattan Plots</h1>
+<p>Manhattan plots are a type of scatter plot that show the statistical significance of a genomic variant with an outcome of interest.
+Yan Holtz made a self-annotating <a href="https://www.r-graph-gallery.com/101_Manhattan_plot.html">manhattan plot</a> for the R Graph Gallery. His plot is beautiful and adds the rs# for the highest SNP in a signal. I (with the help of a Data Science Ambassador at UArizona) updated the plot to annotate with the gene that the SNP is in or nearest to after any given suggestive significance threshold.</p>
+<p>Additions to the code included locating the top SNP and SNPs of every chromosome.</p>
+<pre class="r"><code>## just top snp
+topsnp = don2[which.min(don2$P),]
+
+## top SNP per chromosome
+topsnps = don2 %&gt;%  
+  group_by(CHR) %&gt;% 
+  slice(which.min(P)) %&gt;% 
+  filter(P &lt; sugg)
+
+## this gives just TOP Gene
+topgene = gene_result %&gt;% filter(topsnp$CHR == gene_result$chrom &amp; 
+                                    topsnp$BP &gt;  gene_result$txStart &amp;
+                                    gene_result$txEnd &gt; topsnp$BP)</code></pre>
+<p>I located the top genes with a few more lines of code…</p>
+<pre class="r"><code>topgene_out_fn = function(topsnps){
+  gene_result %&gt;%     filter(topsnps$CHR == gene_result$chrom &amp;
+                               topsnps$BP &gt;  gene_result$txStart - 500000 &amp;                                     gene_result$txEnd + 500000 &gt; topsnps$BP)
+  
+}
+
+topgenes_out = by(topsnps, topsnps$CHR, function(topsnps) topgene_out_fn(topsnps))
+
+topgenes_out = do.call(rbind.data.frame, topgenes_out)
+
+## remove dups? 
+is_duplicate_out &lt;- lapply(X = topgenes_out, FUN = duplicated, incomparables = FALSE)
+
+
+drop_idx_out &lt;- which(is_duplicate_out$name)
+topgenes_out = topgenes_out[-drop_idx_out, ]</code></pre>
+<p>Then I got stuck trying to narrow down the dataset by choosing the gene which housed a SNP or was closest to it. After much deliberation, I reached out to a better coder than me to solve this problem. Cristian Román-Palacios is a PhD candidate and was a Data Science Ambassador at UArizona and graciously spent some time with me to teach me these next loops. Check out his work <a href="https://github.com/cromanpa94">on his GitHub!</a></p>
+<pre class="r"><code>topgenes = list()
+
+for (i in 1:nrow(topsnps)) {
+  if(topsnps$CHR[i] %in% topgenes_in$chrom){
+    topgenes[[i]] = topgenes_in[topgenes_in$chrom == topsnps$CHR[i],]}
+  else{
+   targetgenes =  topgenes_out[topgenes_out$chrom == topsnps$CHR[i],]
+   
+   ##Get the distance to each target gene
+   distances&lt;-list()
+   for(j in 1:nrow(targetgenes)){
+     if(targetgenes$exonStarts[j] &gt; topsnps$BP[i]){
+       distances[[j]] &lt;-targetgenes$exonStarts[j]-topsnps$BP[i]
+     }else{
+       distances[[j]] &lt;- topsnps$BP[i]-targetgenes$exonEnds[j]
+     }
+   }
+   
+   topgenes[[i]] =targetgenes[which.min(unlist(distances)),]
+  }
+  print(i) 
+}
+
+topgenes = do.call(rbind,topgenes)</code></pre>
+<div id="the-result" class="section level2">
+<h2>The result!</h2>
+<p>This beautiful plot will come in super handy in my lab!</p>
+<p><img src="manhattan.png" /></p>
+</div>
+</div>
