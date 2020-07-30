@@ -1,0 +1,168 @@
+---
+title: 'TidyTuesday Week 31 (My Week 1!) '
+author: Heidi Steiner
+date: '2020-07-30'
+slug: tidytuesday-week-31-my-week-1
+categories:
+  - R
+tags:
+  - R
+  - ggplot2
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-30T12:41:44-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+```{r include = F}
+library(tweetrmd)
+library(webshot2)
+library(skimr)
+
+```
+
+## #TidyTuesday
+
+TidyTuesday, as I understand it, is a weekly challenge to improve upon your R coding abilities. The data is always freely available and the community is always supportive. See this tweet from the FOUNDER of TidyTuesday on my post (and the super easy code to embed a tweet in your website thanks to `tweetrmd` and `webshot2`) --> 
+
+```{r}
+tweet_screenshot(tweet_url("thomas_mock", "1288434354637746177"))
+```
+
+## Week 31 - Palmer Penguins
+As you may already have figured out, this week's TidyTuesday data featured penguins! #TidyCutesday is right!! The cleaned dataset includes measurements of bill size, body mass, and island inhabited. As I mentioned before, the data is always available. This week you can load the data via the package `palmerpenguins` or from github as I show here. 
+
+```{r eval = F}
+penguins.csv <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv')
+```
+
+## Playing with Font
+I decided to try a few new things this week. I'll start with changing fonts. I downloaded free fonts from the internet and added them to FontBook on my Mac. Using the library `showtext` I loaded my two new fonts. 
+
+```{r eval = F}
+library(showtext)
+## Add the font with the corresponding font faces
+font_add("Waltograph", regular = "waltograph42.otf")
+font_add("Filetto", regular = "filetto_regular.ttf")
+## Automatically use showtext to render plots
+showtext_auto()
+
+```
+
+Then, just as changing fonts before, you can call a font `family` in `theme()`. 
+```{r eval = F}
+theme(legend.position = "none", 
+        axis.text = element_text(family = "Filetto",
+                                 size = 20)) +
+```
+
+## Background Image 
+Although changing the theme is super easy in ggplot, I wanted to not just change the theme but change the background altogether. I chose a picture of one of the penguin species, Adélie, when it was featured in National Geographic! I just simply saved the jpg to the same folder as my project and then used the `jpeg` library. (I also learned how to add accents, although I admit I have learned this previously and forgotten.)
+```{r eval = F}
+library(jpeg)
+peng_background <- readJPEG("content/post/2020-07-30-tidytuesday-week-31-my-week-1 background.jpg")
+```
+Then you'll just add to the plot before any `geom`.
+```{r eval = F}
+g + background_image(peng_background) 
+```
+
+```{r include = F, eval = F}
+peng = penguins.csv %>% 
+  mutate(year = as.factor(year),
+         sex = as.factor(sex)) %>%
+  mutate_if(is.character, as.factor) %>% 
+  drop_na()
+
+```
+
+## Curved Arrow Annotations
+Finally, as inspired by a recent tweet...
+```{r echo= F}
+tweet_screenshot(tweet_url("WeAreRLadies", "1280859374668283906"))
+```
+I wanted to try my hand at these curved arrows. First you need to set up the lines for arrows. 
+```{r eval = F}
+arrows <- 
+  tibble(
+    x1 = c(3.13, 2.1, 1.13),
+    x2 = c(3.0, 2.0, 1.0),
+    y1 = c(5000, 5300, 7000), 
+    y2 = c(4800, 4950, 6500)
+  )
+
+```
+
+```{r include = F, eval = F}
+g = peng %>% 
+  ggplot(aes(island, 
+             body_mass_g)) +
+ background_image(peng_background)  +
+  geom_dotplot(binaxis = "y",
+               stackdir = "center", 
+               alpha = .7,
+               binwidth = 150,
+               aes(color = species,
+               fill = species)) +
+  geom_boxplot(width = 0.2,
+               alpha = .5,
+               aes(color = species)) +
+  scale_color_manual(values = c("#005c99",
+                               "#63a96a",
+                               "#fad00a")) +
+  scale_fill_manual(values = c("#005c99",
+                                "#63a96a",
+                                "#fad00a")) +
+  scale_x_discrete(labels = c("Biscoe\nIsland", "Dream\nIsland",  "Torgersen\nIsland") ) + 
+  coord_flip() +
+  theme(legend.position = "none", 
+        axis.text = element_text(family = "Filetto",
+                                 size = 20)) +
+  labs(y = "Body Mass (g)",x = "") +
+  ylim(c(2500, 7500)) +
+  annotate(
+    "text",x = 1.3, y =7000, family = "Waltograph", size = 20,
+    color =  "#fad00a",
+    label = "Gentoo"
+  ) +
+  annotate(
+    "text", x = 2.3, y = 6000, family = "Waltograph", size = 20,
+    color =  "#63a96a",
+    label = "Chinstrap"
+  ) +
+  annotate(
+    "text", x = 3.3, y = 5000, 
+   family = "Waltograph",
+   size = 20, 
+   lineheight = .6, 
+    color =  "#005c99",
+    label = "Adélie")
+
+g2 = g + 
+  geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.07, "inch")), size = 1,
+    color = c("#005c99",
+              "#63a96a",
+              "#fad00a"), curvature = -0.3
+  ) 
+
+```
+
+Then you simply call `geom_curve()` and add some curvature to it! 
+```{r eval = F}
+geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.07, "inch")), size = 1,
+    color = c("#005c99",
+              "#63a96a",
+              "#fad00a"), curvature = -0.3
+  ) 
+```
+
+Proud of my plot this week and can't wait to learn a few new things next week!

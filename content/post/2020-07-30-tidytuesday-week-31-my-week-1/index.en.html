@@ -1,0 +1,79 @@
+---
+title: 'TidyTuesday Week 31 (My Week 1!) '
+author: Heidi Steiner
+date: '2020-07-30'
+slug: tidytuesday-week-31-my-week-1
+categories:
+  - R
+tags:
+  - R
+  - ggplot2
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-30T12:41:44-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="tidytuesday" class="section level2">
+<h2>#TidyTuesday</h2>
+<p>TidyTuesday, as I understand it, is a weekly challenge to improve upon your R coding abilities. The data is always freely available and the community is always supportive. See this tweet from the FOUNDER of TidyTuesday on my post (and the super easy code to embed a tweet in your website thanks to <code>tweetrmd</code> and <code>webshot2</code>) –&gt;</p>
+<pre class="r"><code>tweet_screenshot(tweet_url(&quot;thomas_mock&quot;, &quot;1288434354637746177&quot;))</code></pre>
+<p><img src="/post/2020-07-30-tidytuesday-week-31-my-week-1/index.en_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="week-31---palmer-penguins" class="section level2">
+<h2>Week 31 - Palmer Penguins</h2>
+<p>As you may already have figured out, this week’s TidyTuesday data featured penguins! #TidyCutesday is right!! The cleaned dataset includes measurements of bill size, body mass, and island inhabited. As I mentioned before, the data is always available. This week you can load the data via the package <code>palmerpenguins</code> or from github as I show here.</p>
+<pre class="r"><code>penguins.csv &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv&#39;)</code></pre>
+</div>
+<div id="playing-with-font" class="section level2">
+<h2>Playing with Font</h2>
+<p>I decided to try a few new things this week. I’ll start with changing fonts. I downloaded free fonts from the internet and added them to FontBook on my Mac. Using the library <code>showtext</code> I loaded my two new fonts.</p>
+<pre class="r"><code>library(showtext)
+## Add the font with the corresponding font faces
+font_add(&quot;Waltograph&quot;, regular = &quot;waltograph42.otf&quot;)
+font_add(&quot;Filetto&quot;, regular = &quot;filetto_regular.ttf&quot;)
+## Automatically use showtext to render plots
+showtext_auto()</code></pre>
+<p>Then, just as changing fonts before, you can call a font <code>family</code> in <code>theme()</code>.</p>
+<pre class="r"><code>theme(legend.position = &quot;none&quot;, 
+        axis.text = element_text(family = &quot;Filetto&quot;,
+                                 size = 20)) +</code></pre>
+</div>
+<div id="background-image" class="section level2">
+<h2>Background Image</h2>
+<p>Although changing the theme is super easy in ggplot, I wanted to not just change the theme but change the background altogether. I chose a picture of one of the penguin species, Adélie, when it was featured in National Geographic! I just simply saved the jpg to the same folder as my project and then used the <code>jpeg</code> library. (I also learned how to add accents, although I admit I have learned this previously and forgotten.)</p>
+<pre class="r"><code>library(jpeg)
+peng_background &lt;- readJPEG(&quot;content/post/2020-07-30-tidytuesday-week-31-my-week-1 background.jpg&quot;)</code></pre>
+<p>Then you’ll just add to the plot before any <code>geom</code>.</p>
+<pre class="r"><code>g + background_image(peng_background) </code></pre>
+</div>
+<div id="curved-arrow-annotations" class="section level2">
+<h2>Curved Arrow Annotations</h2>
+<p>Finally, as inspired by a recent tweet…
+<img src="/post/2020-07-30-tidytuesday-week-31-my-week-1/index.en_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+I wanted to try my hand at these curved arrows. First you need to set up the lines for arrows.</p>
+<pre class="r"><code>arrows &lt;- 
+  tibble(
+    x1 = c(3.13, 2.1, 1.13),
+    x2 = c(3.0, 2.0, 1.0),
+    y1 = c(5000, 5300, 7000), 
+    y2 = c(4800, 4950, 6500)
+  )</code></pre>
+<p>Then you simply call <code>geom_curve()</code> and add some curvature to it!</p>
+<pre class="r"><code>geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.07, &quot;inch&quot;)), size = 1,
+    color = c(&quot;#005c99&quot;,
+              &quot;#63a96a&quot;,
+              &quot;#fad00a&quot;), curvature = -0.3
+  ) </code></pre>
+<p>Proud of my plot this week and can’t wait to learn a few new things next week!</p>
+</div>
