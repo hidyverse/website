@@ -9,7 +9,7 @@ email: "steiner@pharmacy.arizona.edu"
 twitter: datadizz
 github: heidiesteiner
 linkedin: 
-date: "May 2020"
+date: "August 2020"
 output: vitae::awesomecv
 ---
 
@@ -22,20 +22,5 @@ output: vitae::awesomecv
 
 # Publications
 
-\defbibheading{bib-/Users/heidisteiner/PERSONAL/website/content/CV/steiner.bib-159830.4}{}
-\addtocategory{bib-/Users/heidisteiner/PERSONAL/website/content/CV/steiner.bib-159830.4}{1,
-2,
-3,
-4,
-5,
-6}
-\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
-\printbibliography[category=bib-/Users/heidisteiner/PERSONAL/website/content/CV/steiner.bib-159830.4,heading=none]\setcounter{papers}{0}
 
-\nocite{1,
-2,
-3,
-4,
-5,
-6}
 
