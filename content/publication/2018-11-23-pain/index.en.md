@@ -3,13 +3,8 @@ abstract: Previous studies have shown associations between genetic polymorphisms
 authors:
  - Asad E. Patanwala
  - Charles Norwood
- - Heidi Steiner
- - Daniel Morrison
- - May Li
- - Keith Walsh
- - Marina Martinez
- - Sarah E. Baker
- - Eric M. Snyder
+ - admin
+ - Talented Authors
  - Jason H. Karnes
 date: "2018-11-23T00:00:00Z"
 doi: "10.1111/cts.12605"
