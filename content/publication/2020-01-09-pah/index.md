@@ -1,30 +1,28 @@
 ---
-abstract: We conducted a multi‐site investigation of genetic determinants of warfarin dose variability in Latinos from the U.S. and Brazil. Patients from four institutions in the United States (n = 411) and Brazil (n = 663) were genotyped for VKORC1 c.‐1639G> A, common CYP2C9 variants, CYP4F2*3, and NQO1*2. Multiple regression analysis was used in the U.S. cohort to test the association between warfarin dose and genotype, adjusting for clinical factors, with further testing in an independent cohort of Brazilians. In the U.S. cohort, VKORC1 and CYP2C9 variants were associated with lower warfarin dose (β = −0.29, P < 2.0 × 10−16; β = −0.21, P = 4.7 × 10−7, respectively) whereas CYP4F2 and NQO1 variants were associated with higher dose (β = 0.10, P = 2 × 10−4; β = 0.10, P = 0.01, respectively). Associations with VKORC1 (β = −0.14, P = 2.0 × 10−16), CYP2C9 (β = −0.07, P = 5.6 × 10−10), and CYP4F2 (β = 0.03, P = 3 × 10−3), but not NQO1*2 (β = 0.01, P = 0.30), were replicated in the Brazilians, explaining 43–46% of warfarin dose variability among the cohorts from the U.S. and Brazil, respectively. We identified genetic associations with warfarin dose requirements in the largest cohort of ancestrally diverse, warfarin‐treated Latinos from the United States and Brazil to date. We confirmed the association of variants in VKORC1, CYP2C9, and CYP4F2 with warfarin dose in Latinos from the United States and Brazil.
+abstract: Limited information is available on racial/ethnic differences in pulmonary arterial hypertension (PAH). Determine effects of race/ethnicity and ancestry on mortality and disease outcomes in diverse patients with PAH. Group 1 PAH patients were included from two national registries with genome-wide data and two local cohorts and further incorporated in a global meta-analysis. Hazard ratios (HRs) were calculated for transplant-free all-cause mortality in Hispanics with Non-Hispanic whites (NHWs) as the reference group. Odds ratios (ORs) for inpatient-specific mortality in PAH patients were also calculated for race/ethnic groups from an additional National Inpatient Sample (NIS) dataset, not included in the meta-analysis. After covariate adjustment, self-reported Hispanics (n=290) exhibited significantly reduced mortality versus NHWs (n=1970) after global meta-analysis (HR 0.60[0.41-0.87], p=0.008). Although not significant, increasing Native American genetic ancestry appeared to account for part of the observed mortality benefit (HR 0.48[0.23-1.01], p=0.053) in the two national registries. Finally, in the NIS, an inpatient mortality benefit was also observed for Hispanics (n=1524) versus NHWs (n=8829; OR 0.65[0.50-0.84], p=0.001). An inpatient mortality benefit was observed for Native Americans (n=185; OR 0.38[0.15-0.93], p=0.034). This study demonstrates a reproducible survival benefit for Hispanic Group 1 PAH patients in multiple clinical settings. Our results implicate contributions of genetic ancestry to differential survival in PAH.
 authors:
-- Nihal El Rouby  
--Leiliane Rodrigues Marcatto  
-- Karla Claudio  
-- Letícia Camargo Tavares  
-- admin 
-- many more talented authors
+- Jason H Karnes
+- Talented Authors 
+- admin
+- More Talented Authors  
 date: "2020-01-09T00:00:00Z"
-doi: "10.1111/cts.12854"
+doi: "10.1164/rccm.201907-1447OC"
 featured: false
 image:
   caption: 
   focal_point: ""
   preview_only: false
 projects: []
-publication: '*Clinical Translational Science*'
+publication: '*American Journal of Respiratory and Critical Care Medicine*'
 publication_short: ""
 publication_types:
 - "2"
-publishDate: "2020-08-29T00:00:00Z"
+publishDate: "2020-01-07T00:00:00Z"
 slides: false
 summary: 
 tags:
 - Source Themes
-title: Multi‐site Investigation of Genetic Determinants of Warfarin Dose Variability in Latinos
+title:  Genetic Admixture and Survival in Diverse Populations with Pulmonary Arterial Hypertension
 url_code: ""
 url_dataset: ""
 url_pdf: false
