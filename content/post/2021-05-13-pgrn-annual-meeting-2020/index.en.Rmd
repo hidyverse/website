@@ -29,7 +29,7 @@ projects: []
 
 I presented a poster at the PGRN Annual Meeting in October 2020. I submitted an abstract of a side project I was working on at the time associating warfarin dose with ABO blood types. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=B_skTRxpXI0&ab_channel=PGRNHub" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="950" height="534" src="https://www.youtube.com/embed/B_skTRxpXI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 This is my first embedded video! 
 
@@ -38,4 +38,11 @@ Reader: uploading to GitHub didn't change anything...trying a new bit of code th
 
 ![](fail.png) 
 
-Fail. 
+Fail once, Fail twice. Third try...is a charm! Obtain the iframe code by right clicking on a youtube video and just paste this code in your rmd file! 
+
+```{r eval =F} 
+<iframe width="950" height="534" src="https://www.youtube.com/embed/B_skTRxpXI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+
+Easy Peasy haha after a half hour of stalk overflow `r emo::ji("wink")`
