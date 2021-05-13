@@ -29,8 +29,11 @@ projects: []
 
 I presented a poster at the PGRN Annual Meeting in October 2020. I submitted an abstract of a side project I was working on at the time associating warfarin dose with ABO blood types. 
 
-![](https://www.youtube.com/watch?v=B_skTRxpXI0&ab_channel=PGRNHub)
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=B_skTRxpXI0&ab_channel=PGRNHub" frameborder="0" allowfullscreen></iframe>
 
-This is my first video embedding attempt...
 
-Reader: it did not load when I knit the document. Will upload to GitHub and get back to you...
+
+This is my first embedded video! 
+
+Reader: the video did not load when I knitted the document... Will upload to GitHub and get back to you...
+Reader: uploading to GitHub didn't change anything...trying a new bit of code that looks more like HTML than R...
