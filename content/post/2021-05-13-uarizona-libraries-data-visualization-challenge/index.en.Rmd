@@ -1,0 +1,44 @@
+---
+title: UArizona Libraries Data Visualization Challenge
+author: Heidi Steiner
+date: '2021-05-13'
+slug: uarizona-libraries-data-visualization-challenge
+categories:
+  - R
+tags:
+  - R
+  - tidyverse
+  - ggplot2
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-05-13T13:26:01-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+![](USasylum_HS_1APR21.jpg)
+
+
+🎶Omigod! Omigod you guys
+Looks like Dizz has gone and won the prize
+If there ever was a perfect plot then this one qualifies
+Omigod you guys!🎶
+
+Look at this!! 😭
+https://new.library.arizona.edu/news/winners-2021-data-visualization-challenge-announced
+
+And this OMG! 😭😭😭 
+
+```{r include = F}
+library(tweetrmd)
+```
+
+```{r echo = F}
+tweet_embed("https://twitter.com/UAZ_ReDATA/status/1392876551952158721")
+```
+

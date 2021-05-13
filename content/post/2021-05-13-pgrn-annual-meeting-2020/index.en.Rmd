@@ -1,0 +1,36 @@
+---
+title: PGRN Annual Meeting 2020
+author: Heidi Steiner
+date: '2020-10-30'
+slug: pgrn-annual-meeting-2020
+categories:
+  - R
+  - research
+tags:
+  - warfarin
+  - ABO
+  - genetics
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-05-13T13:16:52-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+## Pharmacogenomics Global Research Network
+
+(Actually this name is brand new, like yesterday. So in October, when this meeting occurred, the PGRN was still the PharmacoGenomics Research Network).  
+
+I presented a poster at the PGRN Annual Meeting in October 2020. I submitted an abstract of a side project I was working on at the time associating warfarin dose with ABO blood types. 
+
+![](https://www.youtube.com/watch?v=B_skTRxpXI0&ab_channel=PGRNHub)
+
+This is my first video embedding attempt...
+
+Reader: it did not load when I knit the document. Will upload to GitHub and get back to you...
