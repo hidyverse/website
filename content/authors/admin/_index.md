@@ -5,6 +5,9 @@ bio: I love coding in R, data visualization, biostatistics, and clinical researc
 
 education:
   courses:
+    - course: PhD in Clinical Translational Sciences, Minor in Biostatistics
+    institution: University of Arizona
+    year: Expected 2022
   - course: PSM in Applied Biology
     institution: University of Arizona
     year: 2019
@@ -20,14 +23,11 @@ interests:
 organizations:
 - name: University of Arizona
   url: "https://cts.uahs.arizona.edu/people/heidi-steiner"
-role: PhD Student
+role: PhD Candidate
 social:
 - icon: envelope
   icon_pack: fas
   link: '#contact'
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/datadizz
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.com/citations?user=QphZhMUAAAAJ&hl=en
@@ -41,5 +41,5 @@ user_groups:
 - Visitors
 ---
 
-Heidi Steiner is a PhD student in the Clinical Translational Sciences program at the Unviersity of Arizona College of Medicine. Her research focuses on genomic and environmental associataions with drug response and efficacy. She loves coding in R, data visualization, biostatistics, and clinical research. 
+Heidi Steiner is a PhD candidate in the Clinical Translational Sciences program at the University of Arizona College of Medicine - Tucson. Her research focuses on genomic and environmental associations with drug response and efficacy. She loves coding in R, data visualization, biostatistics, and clinical research. 
 
