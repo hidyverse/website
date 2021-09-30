@@ -1,0 +1,40 @@
+---
+title: 'Efficacy of Personal Pharmacogenomic Testing as an Educational Tool in the
+  Pharmacy Curriculum: A Nonblinded, Randomized Controlled Trial'
+author: Heidi Steiner
+date: '2021-08-25'
+slug: PGET
+categories:
+  - R
+tags:
+  - pharmacogenomics
+authors: 
+  - Chloe Grace
+  - Marti Larriva
+  - admin
+  - Many Talented Authors
+  - Jason H. Karnes
+doi: '10.1111/cts.13121'
+publishDate: '2021-09-29T17:31:38-07:00'
+publication_types:
+  - '0'
+publication: ''
+publication_short: ''
+abstract: ''
+summary: ''
+featured: no
+url_pdf: ~
+url_code: ~
+url_dataset: ~
+url_poster: ~
+url_project: ~
+url_slides: ~
+url_source: ~
+url_video: ~
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+slides: ''
+---
