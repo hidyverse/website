@@ -5,10 +5,10 @@ bio: I love coding in R, data visualization, biostatistics, and clinical researc
 
 education:
   courses:
-    - course: PhD in Clinical Translational Sciences, Minor in Biostatistics
+  - course: PhD in Clinical Translational Sciences, Minor in Biostatistics
     institution: University of Arizona
     year: Expected 2022
-  - course: PSM in Applied Biology
+  - course: PSM in Applied Biosciences
     institution: University of Arizona
     year: 2019
   - course: BSc in Biology
