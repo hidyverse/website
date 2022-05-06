@@ -1,0 +1,49 @@
+---
+title: Everything has Changed
+author: Heidi Steiner
+date: '2022-05-03'
+slug: everything-has-changed
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-05-03T14:29:09-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Some updates since you last saw me
+
+### I am now a Data Science Educator with the Data Science Institute here at UArizona! 🎉 
+
+<img src="COM-T_ResearchDay.png" width="100%" />
+
+
+I have learned an immense amount of data science since starting this position, but even more rewardingly, I have learned the joy of teaching! While my research has taken a back seat and my Phrogress is much slower now, I am extremely proud and excited to open the doors to data science for the health scientists affiliated with UArizona. [Check out my profile](https://datascience.arizona.edu/person/heidi-steiner) and the resources available through the Data Science Institute!
+
+### I received The Finley and Florence Brown Endowed Research Award through the Sarver Heart Center's Investigator Awards program
+
+Although the [website](https://heart.arizona.edu/clinical-research/ua-sarver-heart-center-investigator-awards) has yet to be updated, I already spent some of the funds... so saying it's a sure thing. 😅 This research aims to improve warfarin dose prediction model accuracy by including diverse populations in model training and by surveying the gut microbiome for new sources of variability. The proposed research has the potential to improve precision dosing for warfarin and reduce adverse drug events associated with it's therapy. What I've learned so far at the Data Science Institute 
+
+### I have learned SO much that I should blog about! 
+
+- I sat down and learned `xaringan` to create pretty slide decks (and steal content more easily from [Alison Hill](https://www.apreshill.com/) 😃)! This involved learning to google CSS more efficiently and really forced me to organize my content before spending too much time styling my presentation. 
+
+- My #ResBazAZ2021 lecture got a much needed face-lift! I updated the content and can now help users to host websites from github OR netlify. 
+
+- I learned `hail` for genomic analyses, a quite powerful tool that easily allows for multidimensional genomic data and metadata. 
+
+- I learned to access data from the `All of Us` database and copy code from my other analyses to replicate findings. 
+
+### I represented the College of Medicine - Tucson as a Representative to the Graduate & Professional Student Council for the 21-22 academic year. 
+
+During this service, I sat on the Graduate Council of UArizona and the Health & Rec Fee Committee which allowed me deeper access to the goings on of the university. Within this organization I found myself shocked by how much can be accomplished by simply showing up. 
+
+### My first, first author manuscripts hit the shelves! 
+
+A review of cardiovascular pharmacomicrobiomics and an original research manuscript on machine learning (ML) in warfarin dose prediction were finally finished and published. The ML paper is not aging well; every day as I learn new tasks I know I could have improved that manuscript. Alas, we all have to start somewhere. 
