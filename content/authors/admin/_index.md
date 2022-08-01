@@ -1,7 +1,7 @@
 ---
 authors:
 - admin
-bio: I love coding in R, data visualization, biostatistics, and clinical research. 
+bio: I love coding in R, biostatistics, and reproducible clinical research. 
 
 education:
   courses:
@@ -15,15 +15,15 @@ education:
     institution: University of Wisconsin
     year: 2013
     
-email: "steiner@pharmacy.arizona.edu"
+email: "heidiesteiner@arizona.edu"
 interests:
 - Data Visualization
 - Human Subjects Research
 - R Programming
 organizations:
 - name: University of Arizona
-  url: "https://cts.uahs.arizona.edu/people/heidi-steiner"
-role: PhD Candidate
+  url: "https://datascience.arizona.edu/person/heidi-steiner"
+role: Educator @ Data Science Institue<br> PhD Candidate @ College of Medicine - Tucson
 social:
 - icon: envelope
   icon_pack: fas
@@ -41,5 +41,5 @@ user_groups:
 - Visitors
 ---
 
-Heidi Steiner is a PhD candidate in the Clinical Translational Sciences program at the University of Arizona College of Medicine - Tucson. Her research focuses on genomic and environmental associations with drug response and efficacy. She loves coding in R, data visualization, biostatistics, and clinical research. 
+Heidi Steiner is a Data Science Educator and PhD candidate at the University of Arizona. Her doctoral research focuses on genomic and environmental associations with drug response and efficacy. She loves coding in R, biostatistics, and reproducible clinical research. Heidi is passionate about equity and inclusion.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Machine Learning for Prediction of Stable Warfarin Dose in US Latinos and Latin Americans [In Press]'
+title: 'Machine Learning for Prediction of Stable Warfarin Dose in US Latinos and Latin Americans'
 author: Heidi Steiner
 date: '2021-09-20'
 slug: ML-ULLA
@@ -14,7 +14,7 @@ authors:
   - admin
   - Many Talented Authors
   - Jason H. Karnes
-doi: ''
+doi: '10.3389/fphar.2021.749786'
 publishDate: ''
 publication_types:
   - '0'

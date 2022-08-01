@@ -1,0 +1,39 @@
+---
+title: 'Elucidation of Cellular Contributions to Heparin-Induced Thrombocytopenia Using Omic Approaches'
+author: 'Heidi E. Steiner'
+date: '2021-01-21'
+slug: HIT-Omics
+categories:
+  - Review
+tags:
+  - pharmacogenomics
+  - pharmacomicrobiomics
+authors: 
+  - Jason B. Giles
+  - Elise C. Miller
+  - admin
+  - Jason H. Karnes
+doi: '10.3389/fphar.2021.812830'
+publishDate: '2021-01-21T17:31:38-07:00'
+publication_types:
+  - '0'
+publication: '*Frontiers in Pharmacology*'
+publication_short: ''
+abstract: 'Heparin-induced thrombocytopenia (HIT) is an unpredictable, complex, immune-mediated adverse drug reaction associated with a high mortality. Despite decades of research into HIT, fundamental knowledge gaps persist regarding HIT likely due to the complex and unusual nature of the HIT immune response. Such knowledge gaps include the identity of a HIT immunogen, the intrinsic roles of various cell types and their interactions, and the molecular basis that distinguishes pathogenic and non-pathogenic PF4/heparin antibodies. While a key feature of HIT, thrombocytopenia, implicates platelets as a seminal cell fragment in HIT pathogenesis, strong evidence exists for critical roles of multiple cell types. The rise in omic technologies over the last decade has resulted in a number of agnostic, whole system approaches for biological research that may be especially informative for complex phenotypes. Applying multi-omics techniques to HIT has the potential to bring new insights into HIT pathophysiology and identify biomarkers with clinical utility. In this review, we review the clinical, immunological, and molecular features of HIT with emphasis on key cell types and their roles. We then address the applicability of several omic techniques underutilized in HIT, which have the potential to fill knowledge gaps related to HIT biology.'
+summary: ''
+featured: no
+url_pdf: ~
+url_code: ~
+url_dataset: ~
+url_poster: ~
+url_project: ~
+url_slides: ~
+url_source: ~
+url_video: ~
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+slides: ''
+---

@@ -6,10 +6,10 @@
 ############################
 
 # Choose a theme.
-#   Latest themes (may require updating): https://sourcethemes.com/academic/themes/
+#   Latest themes (may require updating): https://wowchemy.com/docs/getting-started/customization/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme = "strawberry"
+theme = "Minimal"
 
 # Enable users to switch between day and night mode?
 day_night = true
@@ -81,12 +81,12 @@ edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir 
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "steiner@pharmacy.arizona.edu"
-phone = "920 579 0557"
+email = ""
+phone = ""
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "Roy P. Drachman College of Pharmacy", city = "University of Arizona", region = "Arizona", postcode = "85721", country = "United States", country_code = "US"}
+address = {street = "BSRL", city = "University of Arizona", region = "Arizona", postcode = "85721", country = "United States", country_code = "US"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.

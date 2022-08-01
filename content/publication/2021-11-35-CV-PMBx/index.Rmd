@@ -1,0 +1,38 @@
+---
+title: 'Role of the Gut Microbiome in Cardiovascular Drug Response: The Potential for Clinical Application'
+author: 'Heidi E. Steiner'
+date: '2021-11-25'
+slug: CV-PMBx
+categories:
+  - Review
+tags:
+  - pharmacogenomics
+  - pharmacomicrobiomics
+authors: 
+  - admin
+  - Talented Authors
+  - Jason H. Karnes
+doi: '10.1002/phar.2650'
+publishDate: '2021-011-25T17:31:38-07:00'
+publication_types:
+  - '0'
+publication: '*Pharmacotherapy*'
+publication_short: ''
+abstract: 'Response to cardiovascular drugs can vary greatly between individuals, and the role of the microbiome in this variability is being increasingly appreciated. Recent evidence indicates that bacteria and other microbes are responsible for direct and indirect effects on drug efficacy and toxicity. Pharmacomicrobiomics aims to uncover variability in drug response due to microbes in the human body, which may alter drug disposition through microbial metabolism, interference by microbial metabolites, or modification of host enzymes. In this review, we present recent advances in our understanding of the interplay between microbes, host metabolism, and cardiovascular drugs. We report numerous cardiovascular drugs with evidence of, or potential for, gut-microbe interactions. However, the effects of gut microbiota on many cardiovascular drugs are yet uninvestigated. Finally, we consider potential clinical applications for the described findings.'
+summary: ''
+featured: no
+url_pdf: ~
+url_code: ~
+url_dataset: ~
+url_poster: ~
+url_project: ~
+url_slides: ~
+url_source: ~
+url_video: ~
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+slides: ''
+---
