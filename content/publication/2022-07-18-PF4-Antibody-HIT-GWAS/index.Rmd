@@ -36,3 +36,7 @@ image:
 projects: []
 slides: ''
 ---
+
+### My Contribution 
+
+Yes, this code is forked from my Manhattan plot. No, I do not agree with the choices in colors. Yes, my name is on this paper. No, my contributions were not included in the final version. 
