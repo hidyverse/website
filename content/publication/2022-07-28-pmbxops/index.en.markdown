@@ -1,0 +1,44 @@
+---
+title: 'Bringing pharmacomicrobiomics to the clinic through well-designed studies'
+author: 'Heidi E. Steiner'
+date: '2022-07-28'
+slug: pmbxops
+categories:
+  - review
+tags:
+  - pharmacomicrobiomics
+authors:
+  - admin
+  - Hayley K. Patterson
+  - Jason B. Giles
+  - Jason H. Karnes
+doi: '10.1111/cts.13381'
+publishDate: '2023-01-06T09:08:26-07:00'
+publication_types:
+  - '0'
+publication: 'Clinical and Translational Science'
+publication_short: ''
+abstract: 'Pharmacomicrobiomic studies investigate drug-microbiome interactions, such as the effect of microbial variation on drug response and disposition. Studying and understanding the interactions between the gut microbiome and drugs is becoming increasingly relevant to clinical practice due to its potential for avoiding adverse drug reactions or predicting variability in drug response. The highly variable nature of the human microbiome presents significant challenges to assessing microbes’ influence. Studies aiming to explore drug-microbiome interactions should be well-designed to account for variation in the microbiome over time and collect data on confounders such as diet, disease, concomitant drugs, and other environmental factors. Here, we assemble a set of important considerations and recommendations for the methodological features required for performing a pharmacomicrobiomic study in humans with a focus on the gut microbiome. Consideration of these factors enable discovery, reproducibility, and more accurate characterization of the relationships between a given drug and the microbiome. Furthermore, appropriate interpretation and dissemination of results from well-designed studies will push the field closer to clinical relevance and implementation.'
+summary: ''
+featured: no
+url_pdf: ~
+url_code: ~
+url_dataset: ~
+url_poster: ~
+url_project: ~
+url_slides: ~
+url_source: ~
+url_video: ~
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+slides: ''
+---
+
+
+This review article was a necessary evil of drafting the warfarin pharmacomicrobiomics clinical research study which made up the third major section of my dissertation research. I needed to do sweeping reviews for every method we decided on in the protocol since this type of research was new for our lab and fairly novel overall. 
+
+While my peer, Hayley, and I were working on writing the study's protocol this paper eventually branched off as it's own literature review for other researchers in our position. We summarize much of what we learned here. I hope to soon share the protocol for other researchers, as well. 
+

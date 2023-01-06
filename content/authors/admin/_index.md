@@ -7,7 +7,7 @@ education:
   courses:
   - course: PhD in Clinical Translational Sciences, Minor in Biostatistics
     institution: University of Arizona
-    year: Expected 2022
+    year: 2022
   - course: PSM in Applied Biosciences
     institution: University of Arizona
     year: 2019
@@ -23,23 +23,23 @@ interests:
 organizations:
 - name: University of Arizona
   url: "https://datascience.arizona.edu/person/heidi-steiner"
-role: Educator @ Data Science Institue<br> PhD Candidate @ College of Medicine - Tucson
+role: Educator @ Data Science Institute
 social:
 - icon: envelope
   icon_pack: fas
   link: '#contact'
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.com/citations?user=QphZhMUAAAAJ&hl=en
+  link: https://scholar.google.com/citations?user=QphZhMUAAAAJ&hl=en&oi=ao
 - icon: github
   icon_pack: fab
-  link: https://github.com/heidiesteiner
+  link: https://github.com/hidyverse
 superuser: true
-title: Heidi Steiner
+title: Heidi E. Steiner
 user_groups:
 - Researchers
 - Visitors
 ---
 
-Heidi Steiner is a Data Science Educator and PhD candidate at the University of Arizona. Her doctoral research focuses on genomic and environmental associations with drug response and efficacy. She loves coding in R, biostatistics, and reproducible clinical research. Heidi is passionate about equity and inclusion.
+Heidi Steiner is a data science educator at the University of Arizona. She learned to code while working in a pharmacogenomics lab working on genomic and environmental associations with drug response and efficacy. She loves coding in R, biostatistics, and reproducible clinical research. Heidi is passionate about equity and inclusion. 
 
