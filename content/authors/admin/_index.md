@@ -15,15 +15,15 @@ education:
     institution: University of Wisconsin
     year: 2013
     
-email: "heidiesteiner@arizona.edu"
+email: "heidiesteiner at gmail"
 interests:
 - Data Visualization
 - Human Subjects Research
 - R Programming
 organizations:
-- name: University of Arizona
-  url: "https://datascience.arizona.edu/person/heidi-steiner"
-role: Educator @ Data Science Institute
+- name: Boehringer Ingelheim 
+  url: "https://www.boehringer-ingelheim.com/us/"
+role: Senior Clinical Data Scientist
 social:
 - icon: envelope
   icon_pack: fas
@@ -41,5 +41,5 @@ user_groups:
 - Visitors
 ---
 
-Heidi Steiner is a data science educator at the University of Arizona. She learned to code while working in a pharmacogenomics lab working on genomic and environmental associations with drug response and efficacy. She loves coding in R, biostatistics, and reproducible clinical research. Heidi is passionate about equity and inclusion. 
+Heidi Steiner is currently a clinical data scientist with BI pharmaceuticals where she captains statistical design of clinical trials eqiupped with R. She learned to code while working in a pharmacogenomics lab working on genomic and environmental associations with drug response and efficacy. She loves coding in R, biostatistics, and reproducible clinical research. Heidi is passionate about equity and inclusion. 
 
